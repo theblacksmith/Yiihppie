@@ -1,12 +1,9 @@
 <?php
 
-require_once(dirname(__FILE__).'/vendors/HamlPHP/src/HamlPHP/Config.php');
-Yii::import('ext.yiihpp.vendors.HamlPHP.src.HamlPHP.Config');
-Yii::import('ext.yiihpp.vendors.HamlPHP.src.HamlPHP.HamlPHP');
-Yii::import('ext.yiihpp.vendors.HamlPHP.src.HamlPHP.Storage.Storage');
-Yii::import('ext.yiihpp.vendors.HamlPHP.src.HamlPHP.Storage.FileStorage');
+Yii::import('ext.yiihppie.vendors.HamlPHP.src.HamlPHP.HamlPHP');
+Yii::import('ext.yiihppie.vendors.HamlPHP.src.HamlPHP.Lang.Helpers', true);
 		
-class Haml extends CViewRenderer {
+class Yiihppie extends CViewRenderer {
 	
 	/**
 	 * @var string the extension name of the source file. Defaults to '.haml'.
@@ -30,9 +27,7 @@ class Haml extends CViewRenderer {
 	private $isInitialized;
 	
 	private function _init() {
-
-		$this->_fileStorage = new FileStorage(dirname(__FILE__).'/tmp');
-		$this->_parser = new HamlPHP($this->_fileStorage);
+		$this->_parser = new HamlPHP();
 
 		$this->isInitialized = true;
 	}
@@ -43,6 +38,7 @@ class Haml extends CViewRenderer {
 	 * @param string $viewFile the resulting view file path
 	 */
 	protected function generateViewFile($sourceFile, $viewFile) {
+		
 		if (substr($sourceFile, strlen($this->fileExtension) * -1) === $this->fileExtension) {
 			if ($this->_parser == null)
 				$this->_init();
