@@ -1,0 +1,3 @@
+[submodule "vendors/HamlPHP"]
+	path = vendors/HamlPHP
+	url = https://github.com/hamlphp/HamlPHP.git
