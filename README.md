@@ -15,7 +15,7 @@ Yiihppie is an [Yii](http://www.yiiframework.com) extension that let's you use [
 		'components'=>array(
 			...
 			'viewRenderer'=>array(
-				'class'=>'ext.yiihppie.Haml',
+				'class'=>'ext.yiihppie.Yiihppie',
 				'fileExtension'=>'.haml'
 			),
 			...
